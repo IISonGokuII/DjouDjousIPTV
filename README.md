@@ -61,32 +61,54 @@ app/
 
 ## 🚀 Build-Anleitung
 
-### Voraussetzungen
+### Methode 1: Android Studio (Empfohlen)
 
-- Android Studio Hedgehog (2023.1.1) oder neuer
-- JDK 17
-- Android SDK 34
-- Kotlin 2.0.0
-
-### Schritte
-
-1. **Projekt öffnen**
-   ```bash
-   File → Open → DjouDjousIPTV Ordner
+1. **Android Studio öffnen**
+   ```
+   File → Open → DjouDjousIPTV Ordner auswählen
    ```
 
 2. **Gradle Sync abwarten**
-   - Alle Dependencies werden automatisch heruntergeladen
+   - Android Studio lädt automatisch alle Dependencies herunter
+   - Dies kann einige Minuten dauern beim ersten Mal
 
 3. **Build ausführen**
-   ```bash
-   ./gradlew assembleDebug
    ```
+   Build → Make Project
+   ```
+   Oder Tastenkürzel: `Strg+F9` (Windows) / `Cmd+F9` (Mac)
 
 4. **APK finden**
    ```
    app/build/outputs/apk/debug/app-debug.apk
    ```
+
+5. **Auf Gerät installieren**
+   ```
+   Run → Run 'app'
+   ```
+   Oder grüner Play-Button in der Toolbar
+
+### Methode 2: Kommandozeile (mit installiertem Gradle)
+
+```bash
+# Debug APK bauen
+./gradlew assembleDebug
+
+# Release APK bauen (unsigned)
+./gradlew assembleRelease
+
+# Tests ausführen
+./gradlew test
+```
+
+### Voraussetzungen
+
+- **Android Studio**: Hedgehog (2023.1.1) oder neuer
+- **JDK**: 17
+- **Android SDK**: 34
+- **Kotlin**: 2.0.0
+- **Gradle**: 8.6 (wird automatisch verwendet)
 
 ---
 
