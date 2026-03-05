@@ -1,4 +1,4 @@
-# DjouDjous IPTV
+# Alaa IPTV
 
 **Next-Gen IPTV Player für Android TV & Mobile**
 
