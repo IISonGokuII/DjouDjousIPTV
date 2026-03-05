@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    TV-Banner für Android TV Homescreen.
+    Größe: 320x180dp (empfohlen für Leanback Launcher)
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="320dp"
+    android:height="180dp"
+    android:viewportWidth="320"
+    android:viewportHeight="180">
+
+    <!-- Background Gradient -->
+    <path
+        android:fillColor="#6366F1"
+        android:pathData="M0,0 L320,0 L320,180 L0,180 Z"/>
+
+    <!-- TV Frame -->
+    <path
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="4"
+        android:pathData="M60,40 L260,40 L260,120 L60,120 Z"/>
+
+    <!-- Screen -->
+    <path
+        android:fillColor="#0F0F0F"
+        android:pathData="M64,44 L256,44 L256,116 L64,116 Z"/>
+
+    <!-- Play Button (Center) -->
+    <path
+        android:fillColor="#6366F1"
+        android:pathData="M145,70 L195,80 L145,90 Z"/>
+
+    <!-- Antenna Left -->
+    <path
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="3"
+        android:pathData="M80,40 L70,20"/>
+
+    <!-- Antenna Right -->
+    <path
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="3"
+        android:pathData="M240,40 L250,20"/>
+
+    <!-- Text: DjouDjous -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M100,140 L220,140"/>
+
+    <!-- IPTV Text Placeholder -->
+    <group android:translateX="100" android:translateY="155">
+        <path
+            android:fillColor="#22D3EE"
+            android:pathData="M0,0 L20,0 L20,3 L0,3 Z"/>
+    </group>
+
+</vector>

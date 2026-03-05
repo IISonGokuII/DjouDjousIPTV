@@ -8,27 +8,17 @@ Eine native, hochmoderne und extrem performante IPTV-Appliance mit modernem Desi
 
 ## 🎯 Projektstatus
 
-### ✅ Phase 1: Core Setup & DataStore Preferences - ABGESCHLOSSEN
+### ✅ Alle Phasen Abgeschlossen!
 
-**Erstellte Dateien:**
-- `build.gradle.kts` (App-Level) - Alle Dependencies mit exakten Versionen
-- `build.gradle.kts` (Projekt-Level) - Plugins
-- `gradle/libs.versions.toml` - Version Catalog
-- `res/xml/network_security_config.xml` - HTTP-Cleartext für IPTV-Streams
-- `AndroidManifest.xml` - Grundgerüst mit allen Permissions & Features
-- `SettingsPreferencesManager.kt` - DataStore für alle Einstellungen
-- `AppModule.kt` - Hilt Application-scoped Bindings
-- `DataStoreModule.kt` - Hilt DataStore Injection
-- `proguard-rules.pro` - ProGuard-Rules für Phase 1
-
-**Zusätzliche Dateien für Build-Fähigkeit:**
-- `DjouDjousIptvApplication.kt` - Hilt Application-Klasse
-- `MainActivity.kt` - Placeholder für Phase 5
-- `OnboardingActivity.kt` - Placeholder für Phase 3
-- `strings.xml`, `themes.xml`, `colors.xml` - Ressourcen
-- `ic_launcher_foreground.xml` - App-Icon
-- `banner.xml` - TV-Homescreen Banner (320x180dp)
-- `backup_rules.xml`, `data_extraction_rules.xml` - Backup-Konfiguration
+| Phase | Status | Dateien | Zeilen |
+|-------|--------|--------|--------|
+| Phase 1: Core Setup & DataStore | ✅ Fertig | 25 | ~1.600 |
+| Phase 2: API & Datenbank | ✅ Fertig | 17 | ~3.400 |
+| Phase 3: Smart Onboarding | ✅ Fertig | 9 | ~2.300 |
+| Phase 4: Media3 Player Engine | ✅ Fertig | 12 | ~2.600 |
+| Phase 5: Dashboard & Navigation | ✅ Fertig | 10 | ~1.700 |
+| Phase 6: TV Integration & Polish | ✅ Fertig | 6 | ~800 |
+| **Gesamt** | **✅ Complete** | **79** | **~12.400** |
 
 ---
 
@@ -40,19 +30,24 @@ Eine native, hochmoderne und extrem performante IPTV-Appliance mit modernem Desi
 app/
 ├── data/
 │   ├── preferences/      # DataStore Settings
-│   ├── repository/       # Repositories (Phase 2)
-│   ├── remote/           # Retrofit API (Phase 2)
-│   └── local/            # Room Database (Phase 2)
+│   ├── remote/           # Retrofit API (Xtream, M3U Parser)
+│   ├── local/            # Room Database (Entities, DAOs)
+│   └── repository/       # Repositories
 ├── domain/
-│   ├── model/            # Entities (Phase 2)
-│   ├── repository/       # Repository Interfaces (Phase 2)
-│   └── usecase/          # Use Cases (Phase 3)
+│   ├── model/            # Entities, Result<T>
+│   └── usecase/          # Use Cases
 ├── presentation/
 │   ├── onboarding/       # Onboarding UI (Phase 3)
-│   ├── main/             # Main Dashboard (Phase 5)
-│   ├── player/           # Video Player (Phase 4)
-│   └── settings/         # Settings UI (Phase 5)
-└── di/                   # Hilt Modules
+│   ├── home/             # Main Dashboard (Phase 5)
+│   ├── livetv/           # Live-TV Screen (Phase 5)
+│   ├── vod/              # VOD Screen (Phase 5)
+│   ├── series/           # Serien Screen (Phase 5)
+│   ├── settings/         # Settings Screen (Phase 5)
+│   └── player/           # Video Player (Phase 4)
+├── di/                   # Hilt Modules
+├── service/              # Services (PlaybackService)
+├── worker/               # WorkManager Workers
+└── receiver/             # Broadcast Receivers
 ```
 
 ### Wichtige Architekturentscheidungen
@@ -76,7 +71,7 @@ app/
 ### Schritte
 
 1. **Projekt öffnen**
-   ```
+   ```bash
    File → Open → DjouDjousIPTV Ordner
    ```
 
@@ -131,31 +126,105 @@ Die App erlaubt HTTP-Cleartext-Traffic (`network_security_config.xml`), da die M
 
 ---
 
-## 📱 Android TV Features
+## 📱 Features
 
-- ✅ Leanback Launcher Intent
-- ✅ D-Pad Navigation vorbereitet
-- ✅ TV-Banner (320x180dp) für Homescreen
-- ✅ Picture-in-Picture Support
-- ✅ Foreground Service für Media-Playback
+### Phase 1: Core Setup & DataStore
+- ✅ Build-Konfiguration mit allen Dependencies
+- ✅ SettingsPreferencesManager (DataStore)
+- ✅ Hilt Dependency Injection
+- ✅ ProGuard Rules
+
+### Phase 2: API & Datenbank
+- ✅ Xtream Codes API (alle Endpoints)
+- ✅ M3U-Parser (Eigenentwicklung)
+- ✅ Room Database mit 5 Entities
+- ✅ Flow-basierte DAOs
+
+### Phase 3: Smart Onboarding
+- ✅ Provider-Auswahl (Xtream vs M3U)
+- ✅ Login-Screen (Xtream Credentials)
+- ✅ M3U-Import (URL oder Datei)
+- ✅ Kategorie-Filter (Select All/None/Invert)
+- ✅ Synchronisation in Room
+
+### Phase 4: Media3 Player Engine
+- ✅ ExoPlayer mit LoadControl
+- ✅ Buffer-Konfiguration (SMALL, NORMAL, LARGE, CUSTOM)
+- ✅ Hardware/Software Decoder
+- ✅ Auto Frame Rate (Android TV)
+- ✅ Picture-in-Picture
+- ✅ Instant Zapping
+- ✅ OSD mit D-Pad Navigation
+- ✅ Audio/Subtitle Track Selection
+
+### Phase 5: Dashboard & Navigation
+- ✅ Main Dashboard mit Tabs
+- ✅ Live-TV Screen (Kategorien + Streams)
+- ✅ VOD Screen (Grid Layout)
+- ✅ Series Screen (Liste)
+- ✅ Settings Screen (alle Optionen)
+- ✅ Parental PIN Dialog
+- ✅ EPG Worker (WorkManager)
+
+### Phase 6: TV Integration & Polish
+- ✅ TV Channels API (Watch Next)
+- ✅ Boot Receiver (Autostart)
+- ✅ App Update Worker
+- ✅ TV Banner (320x180)
+- ✅ Vollständige ProGuard Rules
 
 ---
 
-## 📋 Nächste Schritte
+## 📺 Android TV Features
 
-### Phase 2: API & Datenbank (Xtream + M3U + Room)
+- ✅ Leanback Launcher Intent
+- ✅ D-Pad Navigation
+- ✅ TV-Banner (320x180dp)
+- ✅ Picture-in-Picture Support
+- ✅ Foreground Service für Media-Playback
+- ✅ Auto Frame Rate (AFR)
+- ✅ Watch Next Integration
+- ✅ Boot Autostart
 
-**Geplante Dateien:**
-1. `XtreamApiService.kt` - Retrofit Interface
-2. `M3uParser.kt` - Eigenentwicklung für M3U-Parsing
-3. `ProviderEntity.kt` + `ProviderDao.kt`
-4. `CategoryEntity.kt` + `CategoryDao.kt`
-5. `StreamEntity.kt` + `StreamDao.kt`
-6. `EpgEventEntity.kt` + `EpgEventDao.kt`
-7. `VodProgressEntity.kt` + `VodProgressDao.kt`
-8. `AppDatabase.kt` - Room Database
-9. `NetworkModule.kt` - Hilt für Retrofit
-10. `DatabaseModule.kt` - Hilt für Room
+---
+
+## 🎨 UI-Design
+
+### Glassmorphism Dark Theme
+- Semi-transparente Overlays
+- Blur-Effekte für OSD
+- Dark Surface Colors (#0F0F0F)
+- Primary: #6366F1 (Indigo)
+- Accent: #22D3EE (Cyan)
+
+### TV-Optimierte Components
+- TvLazyColumn / TvLazyGrid
+- Focus-Effekte (Scale, Border, Glow)
+- D-Pad Navigation
+- 48dp Minimum Touch Targets
+
+---
+
+## 📋 Berechtigungen
+
+```xml
+<uses-permission android:name="android.permission.INTERNET"/>
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+<uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+<uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK"/>
+<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+<uses-permission android:name="android.permission.READ_MEDIA_VIDEO"/>
+<uses-permission android:name="android.permission.WRITE_TV_PROGRAMS"/>
+```
+
+---
+
+## 🐛 Bekannte Einschränkungen
+
+1. **TV Channels API**: Erfordert manuelle Berechtigung auf einigen TVs
+2. **AFR**: Nur auf Android TV mit Hardware-Support
+3. **M3U-Parser**: Sehr große Dateien (>10.000 Zeilen) können langsam sein
 
 ---
 
@@ -170,3 +239,9 @@ Dieses Projekt ist für Bildungszwecke gedacht.
 Entwickelt nach den Spezifikationen von **DjouDjousIPTV.txt**
 
 **Lead Android TV Architect & Senior Kotlin Developer**
+
+---
+
+## 🔗 GitHub Repository
+
+https://github.com/IISonGokuII/DjouDjousIPTV

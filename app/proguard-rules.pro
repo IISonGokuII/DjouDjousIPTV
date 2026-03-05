@@ -164,6 +164,12 @@
 
 # WorkManager (wird in Phase 5-6 benötigt)
 -keep class androidx.work.** { *; }
+-keep class * extends androidx.work.Worker { *; }
+-keep class * extends androidx.hilt.work.HiltWorker { *; }
+
+# TV Channels API (Phase 6)
+-keep class androidx.media.tv.** { *; }
+-dontwarn androidx.media.tv.**
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # ALLGEMEINE ANDROID RULES
