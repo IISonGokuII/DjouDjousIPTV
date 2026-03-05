@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Primary Colors (Dark Theme mit Glassmorphism) -->
+    <color name="primary">#FF6366F1</color>
+    <color name="primary_dark">#FF4F46E5</color>
+    <color name="accent">#FF22D3EE</color>
+    
+    <!-- Background Colors -->
+    <color name="background">#FF0F0F0F</color>
+    <color name="surface">#FF1A1A1A</color>
+    <color name="surface_variant">#FF2A2A2A</color>
+    
+    <!-- Text Colors -->
+    <color name="on_primary">#FFFFFFFF</color>
+    <color name="on_surface">#FFFFFFFF</color>
+    <color name="on_surface_variant">#FFB0B0B0</color>
+    
+    <!-- Glassmorphism Overlay -->
+    <color name="glass_overlay">#40FFFFFF</color>
+</resources>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="320dp"
+    android:height="180dp"
+    android:viewportWidth="320"
+    android:viewportHeight="180">
+    
+    <!-- Background -->
+    <path
+        android:fillColor="#6366F1"
+        android:pathData="M0,0 L320,0 L320,180 L0,180 Z"/>
+    
+    <!-- TV Icon -->
+    <path
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="4"
+        android:pathData="M80,50 L240,50 L240,130 L80,130 Z"/>
+    
+    <!-- Play Button -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M145,75 L195,105 L145,135 Z"/>
+    
+    <!-- Text: DjouDjous IPTV -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M100,160 L220,160"/>
+</vector>

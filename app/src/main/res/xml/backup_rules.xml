@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<full-backup-content>
+    <!--
+       Backup-Rules für DjouDjousIPTV.
+       
+       DataStore wird automatisch gesichert (befindet sich im internal storage).
+       Room-Datenbank kann bei Bedarf explizit ausgeschlossen werden.
+    -->
+    <include domain="sharedpref" path="."/>
+    <include domain="database" path="."/>
+    <include domain="file" path="."/>
+</full-backup-content>
