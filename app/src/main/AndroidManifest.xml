@@ -90,8 +90,28 @@
 
         <!-- ═══════════════════════════════════════════════════════════════════════════
              PLAYBACK SERVICE (Media3 MediaSessionService)
-             Wird in Phase 4 hinzugefügt
              ═══════════════════════════════════════════════════════════════════════════ -->
+
+        <service
+            android:name=".service.PlaybackService"
+            android:exported="false"
+            android:foregroundServiceType="mediaPlayback">
+            <intent-filter>
+                <action android:name="androidx.media3.session.MediaSessionService" />
+            </intent-filter>
+        </service>
+
+        <!-- ═══════════════════════════════════════════════════════════════════════════
+             VIDEO PLAYER ACTIVITY
+             ═══════════════════════════════════════════════════════════════════════════ -->
+
+        <activity
+            android:name=".ui.player.VideoPlayerActivity"
+            android:exported="false"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
+            android:supportsPictureInPicture="true"
+            android:launchMode="singleTask"
+            android:theme="@style/Theme.DjouDjousIPTV" />
 
         <!-- ═══════════════════════════════════════════════════════════════════════════
              BOOT RECEIVER (Autostart)

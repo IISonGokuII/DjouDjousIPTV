@@ -150,7 +150,13 @@
 
 # Media3 / ExoPlayer (wird in Phase 4 benötigt)
 -keep class androidx.media3.** { *; }
+-keep class * extends androidx.media3.common.Player { *; }
+-keep class * extends androidx.media3.exoplayer.ExoPlayer { *; }
+-keep class * extends androidx.media3.session.MediaSessionService { *; }
 -dontwarn com.google.android.exoplayer2.**
+
+# Media3 Extractors (für verschiedene Formate)
+-keep class androidx.media3.extractor.** { *; }
 
 # Coil (Image Loading, wird in Phase 3-5 benötigt)
 -keep class coil.** { *; }
