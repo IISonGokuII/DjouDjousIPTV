@@ -95,21 +95,58 @@
 }
 
 # ═══════════════════════════════════════════════════════════════════════════════
-# ZUKÜNFTIGE ERWEITERUNGEN (FÜR PHASE 2-6 VORBEREITET)
+# PHASE 2: ROOM, RETROFIT, OKHTTP
 # ═══════════════════════════════════════════════════════════════════════════════
 
-# Room (wird in Phase 2 benötigt)
+# Room Database
 -keep class * extends androidx.room.RoomDatabase
 -keep @androidx.room.Entity class *
 -dontwarn androidx.room.paging.**
 
-# Retrofit & OkHttp (wird in Phase 2 benötigt)
+# Room Entities (für Serialisierung)
+-keep class com.djoudjou.iptv.data.local.ProviderEntity
+-keep class com.djoudjou.iptv.data.local.CategoryEntity
+-keep class com.djoudjou.iptv.data.local.StreamEntity
+-keep class com.djoudjou.iptv.data.local.EpgEventEntity
+-keep class com.djoudjou.iptv.data.local.VodProgressEntity
+
+# Room DAOs
+-keep class com.djoudjou.iptv.data.local.ProviderDao
+-keep class com.djoudjou.iptv.data.local.CategoryDao
+-keep class com.djoudjou.iptv.data.local.StreamDao
+-keep class com.djoudjou.iptv.data.local.EpgEventDao
+-keep class com.djoudjou.iptv.data.local.VodProgressDao
+
+# Room Type Converters
+-keep class com.djoudjou.iptv.data.local.Converters
+-keepclassmembers class com.djoudjou.iptv.data.local.Converters { *; }
+
+# Retrofit & OkHttp
 -dontnote retrofit2.**
 -keep class retrofit2.** { *; }
 -keepattributes Signature
 -keepattributes Exceptions
 -dontwarn okhttp3.**
 -dontwarn okio.**
+
+# Xtream API Models (Kotlin Serialization)
+-keep class com.djoudjou.iptv.data.remote.XtreamAuthResponse
+-keep class com.djoudjou.iptv.data.remote.XtreamUserInfo
+-keep class com.djoudjou.iptv.data.remote.XtreamServerInfo
+-keep class com.djoudjou.iptv.data.remote.XtreamCategoryResponse
+-keep class com.djoudjou.iptv.data.remote.XtreamLiveStreamResponse
+-keep class com.djoudjou.iptv.data.remote.XtreamVodResponse
+-keep class com.djoudjou.iptv.data.remote.XtreamSeriesResponse
+-keep class com.djoudjou.iptv.data.remote.XtreamSeriesInfoResponse
+-keep class com.djoudjou.iptv.data.remote.XtreamSeason
+-keep class com.djoudjou.iptv.data.remote.XtreamEpisode
+-keep class com.djoudjou.iptv.data.remote.XtreamEpisodeInfo
+-keep class com.djoudjou.iptv.data.remote.XtreamEpgResponse
+-keep class com.djoudjou.iptv.data.remote.XtreamVodInfoResponse
+-keep class com.djoudjou.iptv.data.remote.XtreamVodInfo
+-keep class com.djoudjou.iptv.data.remote.XtreamVodData
+-keep class com.djoudjou.iptv.data.remote.XtreamVideoInfo
+-keep class com.djoudjou.iptv.data.remote.Rating
 
 # Media3 / ExoPlayer (wird in Phase 4 benötigt)
 -keep class androidx.media3.** { *; }
